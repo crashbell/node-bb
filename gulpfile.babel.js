@@ -1,17 +1,11 @@
 import 'babel-polyfill'
 import gulp from 'gulp'
+import rename from 'gulp-rename'
 import nodemon from 'gulp-nodemon'
 import {exec} from 'child_process'
 import tasks from './gulp'
 
 const copyFile = ['.babelrc', '.eslintrc', 'gulp.js']
-
-gulp.task
-export function copy(src, dest = Paths.BUILD) {
-  return () => {
-    return pipe(src, dest)
-  }
-}
 
 gulp.task('copy-rc', () => {
 	for(const file of copyFile) {
@@ -20,7 +14,15 @@ gulp.task('copy-rc', () => {
 })
 
 gulp.task('prepublish', ['build', 'copy-rc'], () => {
+	gulp
+		.src('.gitignore')
+  	.pipe(rename('.gitignore.tmp'))
+})
 
+gulp.task('postpublish', () => {
+	gulp
+		.src('.gitignore.tmp')
+  	.pipe(rename('.gitignore'))
 })
 
 gulp.task('serve', ['build', 'copy-rc'], () => {

@@ -24,7 +24,7 @@ gulp.task('clean', () => {
 gulp.task('build', ['clean', 'lint'], () => {
 	return gulp.src(dirs.jsPath)
 	  .pipe(babel())
-	  .pipe(gulp.dest('build'))
+	  .pipe(gulp.dest(dirs.dest))
 })
 
 gulp.task('serve', ['lint', 'build'], () => {
