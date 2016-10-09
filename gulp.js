@@ -1,9 +1,10 @@
 import 'babel-polyfill'
-import del from 'del'
 import gulp from 'gulp'
+import del from 'del'
 import babel from 'gulp-babel'
 import eslint from 'gulp-eslint'
 import nodemon from 'gulp-nodemon'
+import vinylPaths from 'vinyl-paths'
 
 const dirs = {
   jsPath: 'lib/**/*.js',
@@ -13,34 +14,35 @@ const dirs = {
 gulp.task('default', ['watch'], () => {
   nodemon({
     script: 'build/index.js',
-	  env: {'NODE_ENV': 'development'}
+    env: {'NODE_ENV': 'development'}
   })
 })
 
 gulp.task('clean', () => {
-	return del(dirs.dest, {force: true})
+  return gulp.src('build/**')
+    .pipe(vinylPaths(del))
 })
 
-gulp.task('build', ['clean', 'lint'], () => {
-	return gulp.src(dirs.jsPath)
-	  .pipe(babel())
-	  .pipe(gulp.dest(dirs.dest))
+gulp.task('build', ['lint'], () => {
+  return gulp.src(dirs.jsPath)
+    .pipe(babel())
+    .pipe(gulp.dest('build'))
 })
 
 gulp.task('serve', ['lint', 'build'], () => {
-	nodemon({
+  nodemon({
     script: 'build/index.js',
-	  env: {'NODE_ENV': 'production'}
+    env: {'NODE_ENV': 'production'}
   })
 })
 
 gulp.task('lint', () => {
-	return gulp.src(dirs.jsPath)
-		.pipe(eslint())
-		.pipe(eslint.format())
-		.pipe(eslint.failAfterError())
+  return gulp.src(dirs.jsPath)
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
 })
 
 gulp.task('watch', ['build'], () => {
-	return gulp.watch(dirs.jsPath, ['build'])
+  return gulp.watch(dirs.jsPath, ['build'])
 })
