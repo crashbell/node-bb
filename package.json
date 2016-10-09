@@ -1,15 +1,16 @@
 {
   "name": "node-bb",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Simple node bable boilerplate which includes steps: watch, build, test, serve",
   "main": "index.js",
   "scripts": {
     "start": "gulp clean && NODE_ENV=development gulp",
     "build": "gulp build",
     "serve": "gulp serve",
+    "lint": "gulp lint",
     "test": "mocha --compilers js:babel-register",
     "prepublish": "gulp prepublish",
-    "postinstall": "node build/index.js"
+    "postversion": "node build/index.js"
   },
   "repository": {
     "type": "git",
@@ -28,12 +29,19 @@
   "homepage": "https://github.com/crashbell/node-bb#readme",
   "dependencies": {
     "babel-cli": "^6.16.0",
+    "babel-eslint": "^7.0.0",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-stage-2": "^6.17.0",
     "babel-register": "^6.16.3",
     "del": "^2.2.2",
+    "eslint": "^3.7.1",
+    "eslint-config-standard": "^6.2.0",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-promise": "^3.0.0",
+    "eslint-plugin-standard": "^2.0.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^3.0.1",
     "gulp-load-plugins": "^1.3.0",
     "gulp-nodemon": "^2.2.1",
     "mocha": "^3.1.0",

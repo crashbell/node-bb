@@ -2,6 +2,7 @@ import 'babel-polyfill'
 import del from 'del'
 import gulp from 'gulp'
 import babel from 'gulp-babel'
+import eslint from 'gulp-eslint'
 import nodemon from 'gulp-nodemon'
 
 const dirs = {
@@ -20,17 +21,24 @@ gulp.task('clean', () => {
 	return del(dirs.dest, {force: true, dryRun: true})
 })
 
-gulp.task('build', ['clean'], () => {
+gulp.task('build', ['clean', 'lint'], () => {
 	return gulp.src(dirs.jsPath)
 	  .pipe(babel())
 	  .pipe(gulp.dest('build'))
 })
 
-gulp.task('serve', ['build'], () => {
+gulp.task('serve', ['lint', 'build'], () => {
 	nodemon({
     script: 'build/index.js',
 	  env: {'NODE_ENV': 'production'}
   })
+})
+
+gulp.task('lint', () => {
+	return gulp.src(dirs.jsPath)
+		.pipe(eslint())
+		.pipe(eslint.format())
+		.pipe(eslint.failAfterError())
 })
 
 gulp.task('watch', ['build'], () => {

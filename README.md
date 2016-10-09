@@ -1,5 +1,5 @@
 # node-babel-boilerplate
-Centralize build steps in one library. For any application applies Babel, Gulp tasks and ESLint, just simply include this library in `package.json`, it will automatically __overwrite__ `.babelrc`, `gulp.js` files
+Centralize build steps in one library. For any application applies Babel, Gulp tasks and ESLint, just simply include this library in `package.json`, it will automatically __overwrite__ `.babelrc`, `.eslintrc`, `gulp.js`
 
 ```json
   "devDependencies": {
@@ -13,6 +13,7 @@ Create `package.json` scripts
 ```json
   "scripts": {
     "start": "gulp clean && NODE_ENV=development gulp",
+    "lint": "gulp lint",
     "build": "gulp build",
     "serve": "gulp serve"
   }
@@ -28,8 +29,8 @@ import './gulp'
 Features:
 - [x] Babel
 - [x] Basic Gulp tasks: watch, build, serve
+- [x] ESLint
 
 Further Things:
 - [ ] Gulp task for running Test with Mocha
 - [ ] Unit Test
-- [ ] ESLint

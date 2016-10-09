@@ -4,7 +4,7 @@ import nodemon from 'gulp-nodemon'
 import {exec} from 'child_process'
 import tasks from './gulp'
 
-const copyFile = ['.babelrc', 'gulp.js']
+const copyFile = ['.babelrc', '.eslintrc', 'gulp.js']
 
 gulp.task
 export function copy(src, dest = Paths.BUILD) {
