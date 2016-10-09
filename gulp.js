@@ -18,7 +18,7 @@ gulp.task('default', ['watch'], () => {
 })
 
 gulp.task('clean', () => {
-	return del(dirs.dest, {force: true, dryRun: true})
+	return del(dirs.dest, {force: true})
 })
 
 gulp.task('build', ['clean', 'lint'], () => {
