@@ -19,7 +19,7 @@ gulp.task('default', ['watch'], () => {
 })
 
 gulp.task('clean', () => {
-  return gulp.src('build/**')
+  return gulp.src('build/**/*')
     .pipe(vinylPaths(del))
 })
 
