@@ -4,7 +4,6 @@ import del from 'del'
 import babel from 'gulp-babel'
 import eslint from 'gulp-eslint'
 import nodemon from 'gulp-nodemon'
-import vinylPaths from 'vinyl-paths'
 
 const dirs = {
   jsPath: 'lib/**/*.js',
@@ -19,8 +18,7 @@ gulp.task('default', ['watch'], () => {
 })
 
 gulp.task('clean', () => {
-  return gulp.src('build/**/*')
-    .pipe(vinylPaths(del))
+  return del(['build/**/*'])
 })
 
 gulp.task('build', ['lint'], () => {
