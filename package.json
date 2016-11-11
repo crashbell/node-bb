@@ -1,6 +1,6 @@
 {
   "name": "node-bb",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Simple node bable boilerplate which includes steps: watch, build, test, serve",
   "main": "index.js",
   "scripts": {

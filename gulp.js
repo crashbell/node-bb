@@ -13,6 +13,7 @@ const dirs = {
 gulp.task('default', ['watch'], () => {
   nodemon({
     script: 'build/index.js',
+    ext: 'js',
     env: {'NODE_ENV': 'development'}
   })
 })
