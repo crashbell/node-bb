@@ -3,6 +3,9 @@
    "plugins": [
     "add-module-exports",
     "transform-function-bind",
-    "transform-regenerator"
+    "transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    }
   ]
 }
