@@ -1,4 +1,4 @@
-# node-babel-boilerplate [![Build Status](https://travis-ci.org/crashbell/node-bb.svg?branch=master)](https://travis-ci.org/crashbell/node-bb)
+# node-babel-boilerplate [![Build Status](https://travis-ci.org/crashbell/node-bb.svg?branch=master)](https://travis-ci.org/crashbell/node-bb)[![npm version](https://badge.fury.io/js/node-bb.svg)](https://badge.fury.io/js/node-bb)
 
 Centralize build steps in one library. For any application applies Babel, Gulp tasks and ESLint, just simply include this library in `package.json`, it will automatically __overwrite__ `.babelrc`, `.eslintrc`, `gulp.js`
 
