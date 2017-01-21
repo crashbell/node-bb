@@ -3,10 +3,7 @@
    "plugins": [
     "add-module-exports",
     "transform-function-bind",
-    "transform-runtime", {
-      "polyfill": false,
-      "regenerator": true
-    },
+    "transform-runtime",
     "transform-decorators-legacy"
   ]
 }
