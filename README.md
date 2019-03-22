@@ -8,7 +8,7 @@ Centralize build steps in one library. For any application applies Babel, Gulp t
   }
 ```
 
-# Basic setup
+# Setup
 
 Create `package.json` scripts
 ```json
